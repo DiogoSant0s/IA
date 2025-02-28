@@ -8,9 +8,8 @@ def strip_execution_count(notebook_path):
     for cell in notebook.get('cells', []):
         if 'execution_count' in cell:
             cell['execution_count'] = None
-        for output in cell.get('outputs', []):
-            if 'execution_count' in output:
-                output['execution_count'] = None
+        if 'outputs' in cell:
+            cell['outputs'] = []
 
     with open(notebook_path, 'w', encoding='utf-8') as f:
         json.dump(notebook, f, indent=1)
