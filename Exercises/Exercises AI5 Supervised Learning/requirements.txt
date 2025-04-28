@@ -7,3 +7,5 @@ matplotlib
 jupyterlab
 notebook
 graphviz
+imbalanced-learn
+gymnasium
